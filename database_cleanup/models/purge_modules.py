@@ -72,13 +72,6 @@ class CleanupPurgeWizardModule(models.TransientModel):
         ):
             if get_module_path(module.name, display_warning=False):
                 continue
-            if module.state == "uninstalled":
-                self.env["cleanup.purge.line.module"].create(
-                    {
-                        "name": module.name,
-                    }
-                )
-                continue
             res.append((0, 0, {"name": module.name}))
 
         if not res:
