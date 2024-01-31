@@ -82,9 +82,9 @@ the top right search box, is not affected.
 Additional search fields can be configured at Settings > Technical >
 Database > Models, using the "Name Search Fields" field.
 
-|image1|
+|image3|
 
-.. |image1| image:: https://raw.githubusercontent.com/OCA/server-tools/11.0/base_name_search_improved/images/image1.png
+.. |image3| image:: https://raw.githubusercontent.com/OCA/server-tools/11.0/base_name_search_improved/images/image1.png
 
 Usage
 =====
