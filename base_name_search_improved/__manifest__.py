@@ -11,5 +11,5 @@
     "data": ["views/ir_model_views.xml"],
     "depends": ["base"],
     "installable": True,
-    "uninstall_hook": "uninstall_hook",
+    "post_init_hook": "post_init_hook",
 }

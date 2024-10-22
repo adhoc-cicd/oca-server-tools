@@ -120,17 +120,41 @@ def patch_name_search():
     return _name_search
 
 
-class Base(models.AbstractModel):
-    _inherit = "base"
+class IrModel(models.Model):
+    _inherit = "ir.model"
 
-    # TODO perhaps better to create only the field when enabled on the model
-    smart_search = fields.Char(
-        compute="_compute_smart_search",
-        search="_search_smart_search",
+    add_smart_search = fields.Boolean(help="Add Smart Search on search views")
+    use_smart_name_search = fields.Boolean(
+        string="Smart Name Search Enabled?",
+        help="Use Smart Search for 'name_search', this will affect when "
+        "searching from other records (for eg. from m2o fields",
     )
+    name_search_ids = fields.Many2many("ir.model.fields", string="Smart Search Fields")
+    name_search_domain = fields.Char(string="Smart Search Domain")
+    smart_search_warning = fields.Html(compute="_compute_smart_search_warning")
+
+    @api.model
+    def write(self, vals):
+        result = super().write(vals)
+        self.add_smart_search_to_models()
+        return result
+
+    @api.model
+    def add_smart_search_to_models(self):
+        models_with_smart_search = self.search([("add_smart_search", "=", True)])
+        for ir_model in models_with_smart_search:
+            self._add_smart_search_field(ir_model)
+
+    @api.model
+    def _add_smart_search_field(self, ir_model):
+        if not ir_model._fields.get("x_smart_search"):
+            field = fields.Char(
+                compute="_compute_smart_search", search="_search_smart_search"
+            )
+            ir_model._add_field("x_smart_search", field)
 
     def _compute_smart_search(self):
-        self.smart_search = False
+        self.x_smart_search = False
 
     @api.model
     def _search_smart_search(self, operator, value):
@@ -166,23 +190,9 @@ class Base(models.AbstractModel):
                 placeholder = placeholders[0]
             else:
                 placeholder = arch.xpath("//search")[0]
-            placeholder.addnext(etree.Element("field", {"name": "smart_search"}))
+            placeholder.addnext(etree.Element("field", {"name": "x_smart_search"}))
             arch.remove(placeholder)
         return arch, view
-
-
-class IrModel(models.Model):
-    _inherit = "ir.model"
-
-    add_smart_search = fields.Boolean(help="Add Smart Search on search views")
-    use_smart_name_search = fields.Boolean(
-        string="Smart Name Search Enabled?",
-        help="Use Smart Search for 'name_search', this will affect when "
-        "searching from other records (for eg. from m2o fields",
-    )
-    name_search_ids = fields.Many2many("ir.model.fields", string="Smart Search Fields")
-    name_search_domain = fields.Char(string="Smart Search Domain")
-    smart_search_warning = fields.Html(compute="_compute_smart_search_warning")
 
     @api.depends("name_search_ids")
     def _compute_smart_search_warning(self):
