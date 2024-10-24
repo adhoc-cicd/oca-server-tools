@@ -93,14 +93,14 @@ able to define a dedicated tree view for my.model.a.b.rel.
 
 .. code:: xml
 
-   <record id="my_model_a_b_rel_tree_view" model="ir.ui.view">
-       <field name="name">my.model.a.b.rel.tree.view</field>
+   <record id="my_model_a_b_rel_list_view" model="ir.ui.view">
+       <field name="name">my.model.a.b.rel.list.view</field>
        <field name="model">my.model.a.b.rel</field>
        <field name="arch" type="xml">
-           <tree editable="top">
+           <list editable="top">
                <field name="my_model_a_id" />
                <field name="my_model_b_id" />
-           </tree>
+           </list>
        </field>
    </record>
 

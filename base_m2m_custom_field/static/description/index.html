@@ -436,14 +436,14 @@ table is needed, for example to be editable in a dedicated tree view.</p>
 the relational table name, as _name for the relational model, we’re
 able to define a dedicated tree view for my.model.a.b.rel.</p>
 <pre class="code xml literal-block">
-<span class="nt">&lt;record</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;my_model_a_b_rel_tree_view&quot;</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span><span class="w">
-    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>my.model.a.b.rel.tree.view<span class="nt">&lt;/field&gt;</span><span class="w">
+<span class="nt">&lt;record</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;my_model_a_b_rel_list_view&quot;</span><span class="w"> </span><span class="na">model=</span><span class="s">&quot;ir.ui.view&quot;</span><span class="nt">&gt;</span><span class="w">
+    </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="nt">&gt;</span>my.model.a.b.rel.list.view<span class="nt">&lt;/field&gt;</span><span class="w">
     </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;model&quot;</span><span class="nt">&gt;</span>my.model.a.b.rel<span class="nt">&lt;/field&gt;</span><span class="w">
     </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;arch&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;xml&quot;</span><span class="nt">&gt;</span><span class="w">
-        </span><span class="nt">&lt;tree</span><span class="w"> </span><span class="na">editable=</span><span class="s">&quot;top&quot;</span><span class="nt">&gt;</span><span class="w">
+        </span><span class="nt">&lt;list</span><span class="w"> </span><span class="na">editable=</span><span class="s">&quot;top&quot;</span><span class="nt">&gt;</span><span class="w">
             </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;my_model_a_id&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">
             </span><span class="nt">&lt;field</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;my_model_b_id&quot;</span><span class="w"> </span><span class="nt">/&gt;</span><span class="w">
-        </span><span class="nt">&lt;/tree&gt;</span><span class="w">
+        </span><span class="nt">&lt;/list&gt;</span><span class="w">
     </span><span class="nt">&lt;/field&gt;</span><span class="w">
 </span><span class="nt">&lt;/record&gt;</span>
 </pre>
