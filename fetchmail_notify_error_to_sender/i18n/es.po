@@ -55,59 +55,19 @@ msgid ""
 "<div style=\"margin: 0px; padding: 0px;\">\n"
 "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
 "                <div>\n"
-"                <p>Hello <t t-out=\"ctx.get('sender_message').get('from')\"/"
-">,</p>\n"
+"                <p>Hello <t t-out=\"ctx.get('sender_message')."
+"get('from')\"></t>,</p>\n"
 "                <p>we got a problem with your email: <i><t t-out=\"ctx."
-"get('sender_message').get('subject')\"/></i></p>\n"
+"get('sender_message').get('subject')\"></t></i></p>\n"
 "                <p>Maybe you used a wrong recipient address?</p>\n"
-"                <p><br/></p>\n"
+"                <p><br></p>\n"
 "                <p>Technical details:</p>\n"
-"                <p><i><t t-out=\"ctx.get('route_exception')\"/></i></p>\n"
+"                <p><i><t t-out=\"ctx.get('route_exception')\"></t></i></p>\n"
 "                </div>\n"
 "                </p>\n"
 "            </div>\n"
 "        "
 msgstr ""
-"<div style=\"margin: 0px; padding: 0px;\">\n"
-"                <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
-"                <div>\n"
-"                <p>Hola <t t-out=\"ctx.get('sender_message').get('from')\""
-"/>,</p>\n"
-"                <p>Tenemos un problema con tu correo electrónico: <i><t "
-"t-out=\"ctx.get('sender_message').get('subject')\"/></i></p>\n"
-"                <p>¿Quizás usaste una dirección de destinatario "
-"incorrecta?</p>\n"
-"                <p><br/></p>\n"
-"                <p>Detalles técnicos:</p>\n"
-"                <p><i><t t-out=\"ctx.get('route_exception')\"/></i></p>\n"
-"                </div>\n"
-"                </p>\n"
-"            </div>\n"
-"        "
-
-#. module: fetchmail_notify_error_to_sender
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_fetchmail_server__changeset_change_ids
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_mail_thread__changeset_change_ids
-msgid "Changeset Changes"
-msgstr "Cambios en el conjunto de modificaciones"
-
-#. module: fetchmail_notify_error_to_sender
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_fetchmail_server__changeset_ids
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_mail_thread__changeset_ids
-msgid "Changesets"
-msgstr "Conjuntos de cambios"
-
-#. module: fetchmail_notify_error_to_sender
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_fetchmail_server__count_pending_changeset_changes
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_mail_thread__count_pending_changeset_changes
-msgid "Count Pending Changeset Changes"
-msgstr "Contar los cambios del conjunto de cambios pendientes"
-
-#. module: fetchmail_notify_error_to_sender
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_fetchmail_server__count_pending_changesets
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_mail_thread__count_pending_changesets
-msgid "Count Pending Changesets"
-msgstr "Contar conjuntos de cambios pendientes"
 
 #. module: fetchmail_notify_error_to_sender
 #: model:ir.model,name:fetchmail_notify_error_to_sender.model_mail_thread
@@ -143,8 +103,53 @@ msgstr ""
 "Establezca aquí la plantilla que se utilizará para enviar un aviso al "
 "remitente cuando se produzcan errores al recuperar el correo electrónico"
 
-#. module: fetchmail_notify_error_to_sender
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_fetchmail_server__user_can_see_changeset
-#: model:ir.model.fields,field_description:fetchmail_notify_error_to_sender.field_mail_thread__user_can_see_changeset
-msgid "User Can See Changeset"
-msgstr "Usuario puede ver conjunto de cambios"
+#~ msgid ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+#~ "\">\n"
+#~ "                <div>\n"
+#~ "                <p>Hello <t t-out=\"ctx.get('sender_message')."
+#~ "get('from')\"/>,</p>\n"
+#~ "                <p>we got a problem with your email: <i><t t-out=\"ctx."
+#~ "get('sender_message').get('subject')\"/></i></p>\n"
+#~ "                <p>Maybe you used a wrong recipient address?</p>\n"
+#~ "                <p><br/></p>\n"
+#~ "                <p>Technical details:</p>\n"
+#~ "                <p><i><t t-out=\"ctx.get('route_exception')\"/></i></p>\n"
+#~ "                </div>\n"
+#~ "                </p>\n"
+#~ "            </div>\n"
+#~ "        "
+#~ msgstr ""
+#~ "<div style=\"margin: 0px; padding: 0px;\">\n"
+#~ "                <p style=\"margin: 0px; padding: 0px; font-size: 13px;"
+#~ "\">\n"
+#~ "                <div>\n"
+#~ "                <p>Hola <t t-out=\"ctx.get('sender_message')."
+#~ "get('from')\"/>,</p>\n"
+#~ "                <p>Tenemos un problema con tu correo electrónico: <i><t t-"
+#~ "out=\"ctx.get('sender_message').get('subject')\"/></i></p>\n"
+#~ "                <p>¿Quizás usaste una dirección de destinatario "
+#~ "incorrecta?</p>\n"
+#~ "                <p><br/></p>\n"
+#~ "                <p>Detalles técnicos:</p>\n"
+#~ "                <p><i><t t-out=\"ctx.get('route_exception')\"/></i></p>\n"
+#~ "                </div>\n"
+#~ "                </p>\n"
+#~ "            </div>\n"
+#~ "        "
+
+#~ msgid "Changeset Changes"
+#~ msgstr "Cambios en el conjunto de modificaciones"
+
+#~ msgid "Changesets"
+#~ msgstr "Conjuntos de cambios"
+
+#~ msgid "Count Pending Changeset Changes"
+#~ msgstr "Contar los cambios del conjunto de cambios pendientes"
+
+#~ msgid "Count Pending Changesets"
+#~ msgstr "Contar conjuntos de cambios pendientes"
+
+#~ msgid "User Can See Changeset"
+#~ msgstr "Usuario puede ver conjunto de cambios"
