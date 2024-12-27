@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <odoo>
-    <record model="ir.ui.view" id="view_email_server_form">
+    <record id="view_email_server_form" model="ir.ui.view">
         <field name="name">fetchmail.server.form</field>
         <field name="model">fetchmail.server</field>
         <field name="inherit_id" ref="mail.view_email_server_form" />
