@@ -1,8 +1,9 @@
 [project]
 name = "odoo-addons-oca-server-tools"
-version = "18.0.20241220.0"
+version = "18.0.20241230.0"
 dependencies = [
     "odoo-addon-attachment_unindex_content==18.0.*",
+    "odoo-addon-auditlog==18.0.*",
     "odoo-addon-base_cron_exclusion==18.0.*",
     "odoo-addon-base_exception==18.0.*",
     "odoo-addon-base_m2m_custom_field==18.0.*",
