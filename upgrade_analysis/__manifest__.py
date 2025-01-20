@@ -22,7 +22,7 @@
     "installable": True,
     "depends": ["base"],
     "external_dependencies": {
-        "python": ["mako", "dataclasses", "odoorpc", "openupgradelib"],
+        "python": ["dataclasses", "odoorpc", "openupgradelib"],
     },
     "license": "AGPL-3",
 }
