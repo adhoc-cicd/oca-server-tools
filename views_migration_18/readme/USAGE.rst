@@ -4,7 +4,7 @@ This module is not installable, to use this module, you need to:
 
 .. code-block:: shell
 
-  odoo -d DATABASE_NAME -i MODULE_TO_MIGRATE --load=base,web,views_migration_17 --stop-after-init
+  odoo -d DATABASE_NAME -i MODULE_TO_MIGRATE --load=base,web,views_migration_18 --stop-after-init
 
 
 2. If success the modifications will be in the source code of your module.

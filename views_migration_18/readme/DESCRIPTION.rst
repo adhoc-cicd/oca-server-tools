@@ -1,4 +1,4 @@
-``views-migration-v17`` is a odoo server mode module that allows you to automatically migrate the views of a Odoo module versión <= v16 to v17 .
+``views-migration-v18`` is a odoo server mode module that allows you to automatically migrate the views of a Odoo module versión <= v16 to v18 .
 
 For example::
 

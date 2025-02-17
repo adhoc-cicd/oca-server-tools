@@ -7,10 +7,10 @@
     :target: https://app.travis-ci.com/OCA/odoo-module-migrator
 
 ====================
-Views-migration-v17
+Views-migration-v18
 ====================
 
-``views-migration-v17`` is a odoo server mode module that allows you to automatically migrate the views of a Odoo module versión <= v16 to v17 .
+``views-migration-v18`` is a odoo server mode module that allows you to automatically migrate the views of a Odoo module versión <= v16 to v18 .
 
 For example::
 
@@ -34,7 +34,7 @@ This module is not installable, to use this module, you need to:
 
 .. code-block:: shell
 
-  odoo -d DATABASE_NAME -i MODULE_TO_MIGRATE --load=base,web,views_migration_17 --stop-after-init
+  odoo -d DATABASE_NAME -i MODULE_TO_MIGRATE --load=base,web,views_migration_18 --stop-after-init
 
 
 2. If success the modifications will be in the source code of your module.
