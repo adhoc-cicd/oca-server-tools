@@ -8,14 +8,14 @@ from lxml import etree
 
 from odoo import api, fields, models, tools
 from odoo.exceptions import ValidationError
-from odoo.osv import expression
+from odoo.fields import Domain
 
 _logger = logging.getLogger(__name__)
 # Extended name search is only used on some operators
 ALLOWED_OPS = {"ilike", "like"}
 
 
-@tools.ormcache(skiparg=0)
+@tools.ormcache()
 def _get_rec_names(self):
     "List of fields to search into"
     model = self.env["ir.model"].search([("model", "=", str(self._name))])
@@ -24,7 +24,7 @@ def _get_rec_names(self):
     return rec_name + other_names
 
 
-@tools.ormcache(skiparg=0)
+@tools.ormcache()
 def _get_use_smart_name_search(self):
     return (
         self.env["ir.model"]
@@ -33,7 +33,7 @@ def _get_use_smart_name_search(self):
     )
 
 
-@tools.ormcache(skiparg=0)
+@tools.ormcache()
 def _get_add_smart_search(self):
     "Add Smart Search on search views"
     model = self.env["ir.model"].search([("model", "=", str(self._name))])
@@ -43,7 +43,7 @@ def _get_add_smart_search(self):
     return False
 
 
-@tools.ormcache(skiparg=0)
+@tools.ormcache()
 def _get_name_search_domain(self):
     "Add Smart Search on search views"
     name_search_domain = (
@@ -110,12 +110,12 @@ class Base(models.AbstractModel):
 
         # Try regular search on each additional search field
         for rec_name in all_names:
-            domain = expression.AND([base_domain, [(rec_name, operator, name)]])
+            domain = Domain.AND([base_domain, [(rec_name, operator, name)]])
             results = _extend_name_results(self, domain, results, limit)
 
         # Try ordered word search on each of the search fields
         for rec_name in all_names:
-            domain = expression.AND(
+            domain = Domain.AND(
                 [base_domain, [(rec_name, operator, name.replace(" ", "%"))]]
             )
             results = _extend_name_results(self, domain, results, limit)
@@ -126,16 +126,16 @@ class Base(models.AbstractModel):
         if " " in name:
             unordered_domain = []
             for word in name.split():
-                word_domain = expression.OR(
+                word_domain = Domain.OR(
                     [[(rec_name, operator, word)] for rec_name in all_names]
                 )
                 unordered_domain = (
-                    expression.AND([unordered_domain, word_domain])
+                    Domain.AND([unordered_domain, word_domain])
                     if unordered_domain
                     else word_domain
                 )
             results = _extend_name_results(
-                self, expression.AND([base_domain, unordered_domain]), results, limit
+                self, Domain.AND([base_domain, unordered_domain]), results, limit
             )
 
         results = results[:limit]
@@ -211,7 +211,7 @@ class IrModel(models.Model):
                 RecursionError,
             ) as e:
                 raise ValidationError(
-                    self.env._("Couldn't eval Name Search Domain (%s)") % e
+                    self.env._("Couldn't eval Name Search Domain (%s)", e)
                 ) from e
             if not isinstance(name_search_domain, list):
                 raise ValidationError(

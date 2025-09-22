@@ -105,7 +105,7 @@ class NameSearchCase(TransactionCase):
                 "ttype": "char",
                 "model_id": self.model_partner.id,
                 "model": self.model_partner.model,
-                "translate": True,
+                "translate": "standard",
             }
         )
         self.model_partner.name_search_ids = [(4, translatable_field.id)]
