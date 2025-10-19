@@ -149,6 +149,12 @@ class PGSessionStore(sessions.SessionStore):
             (f"{max_lifetime} seconds",),
         )
 
+    @with_lock
+    @with_cursor
+    def delete_from_identifiers(self, identifiers):
+        for identifier in identifiers:
+            self._cr.execute("DELETE FROM http_sessions WHERE sid=%s", (identifier,))
+
 
 _original_session_store = http.root.__class__.session_store
 
