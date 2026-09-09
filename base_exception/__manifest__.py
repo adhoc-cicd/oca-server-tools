@@ -5,7 +5,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Exception Rule",
-    "version": "18.0.1.1.2",
+    "version": "18.0.1.1.1",
     "development_status": "Mature",
     "category": "Generic Modules",
     "summary": """
@@ -24,9 +24,4 @@
         "views/base_exception_view.xml",
     ],
     "installable": True,
-    "assets": {
-        "web.assets_backend": [
-            "base_exception/static/src/js/base_exception.esm.js",
-        ],
-    },
 }
